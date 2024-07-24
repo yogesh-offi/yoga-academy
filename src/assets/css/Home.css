@@ -1,0 +1,144 @@
+.home{
+    height: 800px;
+}
+.Footer{
+    margin-top: 1001px;
+}
+.piceven{
+    width: 30%;
+    height: 305px;
+    position: absolute;
+    top:29%;
+    left: 30px;
+    /* border: 2px solid black; */
+    background-image: url("D:\AAD\app\src\assets\images\img1.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.texteven{
+    position: absolute;
+    width: 60%;
+    height:200px;
+    top:28%;
+    /* border: 2px solid black; */
+    left:25%;
+    padding-top:30px;
+    padding-left: 150px;
+    font-size:xx-large;
+    color:aliceblue;
+}
+.pheading{
+    font-family: Arial, sans-serif;
+    font-style: italic;
+    padding-left: 250px;
+    color: aqua;
+    font-size: 35px;
+}
+.picodd{
+    width: 30%;
+    height: 305px;
+    position: absolute;
+    top: 78%;
+    right: 42px;
+    border: 2px solid black;
+    background-image: url("D:\AAD\app\src\assets\images\img2.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.textodd{
+    position: absolute;
+    width: 60%;
+    height:200px;
+    top:79%;
+    /* border: 2px solid black; */
+    right:38%;
+    padding-top:30px;
+    padding-left: 150px;
+    font-size:xx-large;
+    color:aliceblue;
+}
+.homebtn {
+    position: absolute;
+    top: 130%;
+    left: 43%;
+    background: linear-gradient(145deg, #4CAF50, #32a852);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.homebtn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    opacity: 0;
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.homebtn:hover::before {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.homebtn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+    transition: all 0.5s ease;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    z-index: -1;
+    border-radius: 50%;
+}
+
+.homebtn:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.homebtn:active {
+    transform: scale(0.95);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.homebtn span {
+    display: inline-block;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.homebtn span::before {
+    content: '\00AB'; /* Double left arrow */
+    position: absolute;
+    opacity: 0;
+    left: -20px;
+    transition: all 0.3s ease;
+}
+
+.homebtn:hover span {
+    padding-left: 25px;
+}
+
+.homebtn:hover span::before {
+    opacity: 1;
+    left: 0;
+}

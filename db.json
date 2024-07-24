@@ -1,0 +1,34 @@
+{
+  "UserData": [
+    {
+      "id": 1,
+      "uname": "yogesh",
+      "email": "Yogesh@",
+      "password": "yogesh"
+    },
+    {
+      "id": 2,
+      "uname": "Vishwa",
+      "email": "Vishwa@gmail.com",
+      "password": "12346"
+    },
+    {
+      "id": 3,
+      "uname": "Yogeshs",
+      "email": "Yogesh@1",
+      "password": "12345"
+    },
+    {
+      "id": 4,
+      "uname": "Yogeshs",
+      "email": "Yogesh@11",
+      "password": "12345"
+    },
+    {
+      "id": 5,
+      "uname": "Yogeshss",
+      "email": "22cse191@skcet.ac.in",
+      "password": "888888"
+    }
+  ]
+}
