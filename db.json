@@ -1,34 +1,32 @@
 {
   "UserData": [
     {
-      "id": 1,
+      "id": "1",
       "uname": "yogesh",
-      "email": "Yogesh@",
-      "password": "yogesh"
+      "email": "yogesh@",
+      "password": "yogesh",
+      "Role": "Admin"
     },
     {
-      "id": 2,
+      "id": "2",
       "uname": "Vishwa",
       "email": "Vishwa@gmail.com",
-      "password": "12346"
+      "password": "12345",
+      "Role": "User"
     },
     {
       "id": 3,
-      "uname": "Yogeshs",
-      "email": "Yogesh@1",
-      "password": "12345"
+      "uname": "sivakumar",
+      "email": "siva@gmail.com",
+      "password": "siva12345",
+      "Role": "User"
     },
     {
       "id": 4,
-      "uname": "Yogeshs",
-      "email": "Yogesh@11",
-      "password": "12345"
-    },
-    {
-      "id": 5,
-      "uname": "Yogeshss",
-      "email": "22cse191@skcet.ac.in",
-      "password": "888888"
+      "uname": "sivakumar",
+      "email": "siva@gmail.com",
+      "password": "siva12345",
+      "Role": "User"
     }
   ]
 }
