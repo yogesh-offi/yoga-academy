@@ -6,6 +6,7 @@ import Home from "./components/Home.jsx";
 import About from "./components/About.jsx";
 import Plans from "./components/Plans.jsx";
 import ContactUs from "./components/ContactUs.jsx";
+import AdminUsers from "./components/AdminUsers.jsx";
 function App() {
   return (
     <div className="App">
@@ -17,6 +18,7 @@ function App() {
         <Route path="/about" element={<About />}></Route>
         <Route path="/contact" element={<ContactUs />}></Route>
         <Route path="/plans" element={<Plans />}></Route>
+        <Route path="/adminusers" element={<AdminUsers />}></Route>
       </Routes>
     </div>
   );

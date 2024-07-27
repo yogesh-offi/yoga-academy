@@ -1,18 +1,23 @@
-import * as React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../assets/css/Login.css';
 import { getData } from '../assets/JSON/API';
 import Navbar from './Navbar';
-import Alert from '@mui/material/Alert';
 import '../assets/css/Navbar.css';
 import Footer from './Footer';
+import { Context } from './GlobeData';
+import ToasterFunc from './ToasterFunc';
+import toast from 'react-hot-toast';
+import Loginimage from 'D:/AAD/app/src/assets/images/Loginimage.jpg';
 export const Login = () => {
+
+    const {LogIn} = useContext(Context);
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [data,setData]=useState([]);
-    const [showAlert, setShowAlert] = useState(false);
 
     useEffect(() => {
 
@@ -41,35 +46,43 @@ export const Login = () => {
         e.preventDefault();
         if(username==="")
         {
-            alert('Please enter Username');
+            toast.error('Please enter Username');
             return;
         }
         else if(password==="")
         {
-            alert('Please enter Password');
+            toast.error('Please enter Password');
             return;
         }
         const uindex =  data ? data.findIndex(({uname})=>uname === username):-1;
         if(uindex === -1)
         {
-            alert('Invalid Username');
+            toast.error('Invalid Username');
         }
         else if(data[uindex].password !== password)
         {
-            alert('Invalid Password');
+            toast.error('Invalid Password');
         }
         else
         {
-            setShowAlert(true);
-            // navigate('/home');
+            
+            const user=data[uindex];
+            LogIn(user);
+            toast.success("Login Successful");
+            setTimeout(()=>{
+                navigate('/home');
+            },2000)
         }
     }
 
     return (
         <div>
             <Navbar/>
-            <div className='Login'>
+            <ToasterFunc/>
                 <h1>Login</h1>
+            <div className='login-container'>
+                <img src={Loginimage} alt="Login Image"></img>
+                <div className='Login'>
                 <form>
                     <label>Username</label>
                     <input type='text' placeholder='Username' onChange={onhandleUsername} />
@@ -78,11 +91,7 @@ export const Login = () => {
                     <button onClick={onhandleSubmit}>Login</button>
                     <p>Don't have an account? <span onClick={onhandleLogin}>Sign Up</span></p>
                 </form>
-                {(showAlert)? (
-                    <Alert severity="success" onClose={() => {setShowAlert(false);navigate('/home')}}>
-                        Login Successful!
-                    </Alert>
-                ):<></>}
+                </div>
             </div>
             <div><Footer/></div>
         </div>

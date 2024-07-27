@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Footer from './Footer'
 import Navbar from './Navbar'
-
+import '../assets/css/ContactUs.css';
 const ContactUs = () => {
     const[name,setname]=useState('');
     const[email,setEmail]=useState('');
@@ -22,7 +22,7 @@ const ContactUs = () => {
   return (
     <div>
         <Navbar/>
-        <div className='Login'>
+        <div className='Contact'>
             <h1>Contact Yoga Academy</h1>
             <form>
                     <label>Name</label>
