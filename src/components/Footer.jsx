@@ -42,10 +42,10 @@ const Footer = () => {
                 <h2>Stay Connected</h2>
                 <address>
                     Yoga Academy Pvt Ltd 153,<br />
-                    Lane no-5, Padmawati Colony A<br />
-                    Kings Road, Jaipur-302019, Rajasthan<br />
+                    Gandipuram,<br />
+                    Coimbatore.<br />
                     <a href="tel:+919786540135">+91-9786540135</a><br />
-                    <a href="mailto:yogaAcademy.com">yogaAcademy.com</a>
+                    <a href="mailto:yogaAcademy@gmail.com">yogaAcademy.com</a>
                 </address>
                 <div className="social-links">
                     <a href="#"><i className="fab fa-facebook"></i></a>

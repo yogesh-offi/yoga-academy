@@ -7,6 +7,8 @@ import About from "./components/About.jsx";
 import Plans from "./components/Plans.jsx";
 import ContactUs from "./components/ContactUs.jsx";
 import AdminUsers from "./components/AdminUsers.jsx";
+import Admissions from "./components/Admissions.jsx";
+import Profile from "./components/Profile.jsx";
 function App() {
   return (
     <div className="App">
@@ -19,6 +21,8 @@ function App() {
         <Route path="/contact" element={<ContactUs />}></Route>
         <Route path="/plans" element={<Plans />}></Route>
         <Route path="/adminusers" element={<AdminUsers />}></Route>
+        <Route path="/admissions" element={<Admissions />}></Route>
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </div>
   );

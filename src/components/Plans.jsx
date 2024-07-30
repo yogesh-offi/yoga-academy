@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import '../assets/css/Plans.css';
@@ -8,90 +8,93 @@ import plan3 from 'D:/AAD/app/src/assets/images/plan3.webp';
 import plan4 from 'D:/AAD/app/src/assets/images/plan4.webp';
 import plan5 from 'D:/AAD/app/src/assets/images/plan5.webp';
 import plan6 from 'D:/AAD/app/src/assets/images/plan6.webp';
+import { Context } from './GlobeData';
+import { getUserData, updateUserPlans } from '../assets/JSON/API';
+
 const Plans = () => {
+  const { userData, LogIn , isAdmin } = useContext(Context);
+
+  const handlePurchase = async (plan) => {
+    if (!userData) {
+      alert("Please log in to purchase a plan");
+      return;
+    }
+
+    const updatedPlans = [...(userData.plans || []), plan];
+    await updateUserPlans(userData.id, updatedPlans);
+    const updatedUser = await getUserData(userData.id);
+    console.log("Updated user after purchase:", updatedUser);
+    LogIn(updatedUser);
+    alert(`You have successfully purchased the ${plan.name} plan!`);
+  };
+
+// const handlePurchase = async (plan) => {
+//     if (userData) {
+//       try {
+//         if (plan) {
+//           await updateUserPlans(userData.id, plan);
+//           alert('Plan purchased successfully!');
+//         } else {
+//           console.error("Error: Plan is undefined.");
+//         }
+//       } catch (error) {
+//         console.error("Error purchasing plan:", error);
+//       }
+//     } else {
+//       alert('Please log in to purchase a plan.');
+//     }
+//   };
+
+  const plans = [
+    { id:1, name: 'Quick Bite Yoga', price: 999, time: '05:30 am - 06:15 am', image: plan1 },
+    { id:2, name: 'Yoga For Beginners', price: 499, time: '05:00 pm - 06:00 pm', image: plan2 },
+    { id:3, name: 'Meditation Weekend', price: 799, time: '05:30 am - 06:15 am', image: plan3 },
+    { id:4, name: 'Personalized Yoga Session', price: 9999, time: 'Flexible time', image: plan4 },
+    { id:5, name: 'Fitness Yoga', price: 399, time: '07:00 am - 08:00 am', image: plan5 },
+    { id:6, name: 'Evening Yoga', price: 399, time: '05:00 pm - 06:00 pm', image: plan6 }
+  ];
+
   return (
     <div className='plan'>
-    <Navbar />
-    <h1>Popular Yoga Plans At Our Academy</h1>
-    <div className='planlist1'>
-        <div className='planItem'>
+      <Navbar />
+      <h1>Popular Yoga Plans At Our Academy</h1>
+      <div className='planlist1'>
+        {plans.slice(0, 3).map((plan, index) => (
+          <div className='planItem' key={index}>
             <div className='planPic'>
-              <img src={plan1} alt='plan1' width={'300px'} height={"200px"}  />
+              <img src={plan.image} alt={plan.name} width={'300px'} height={"200px"} />
             </div>
             <div className='planText'>
-                <h2>Quick Bite Yoga</h2>
-                <p>₹999</p>
-                <p>05:30 am - 06:15 am</p>
-                <button className='viewDetails'>View Details</button>
-                <button className='buyNow'>Buy Now</button>
+              <h2>{plan.name}</h2>
+              <p>₹{plan.price}</p>
+              <p>{plan.time}</p>
+              {(!isAdmin)?<button className='viewDetails'>View Details</button>:<button className='viewDetails'>Edit</button>}
+              {(!isAdmin)?<button className='buyNow' onClick={() => handlePurchase(plan)}>Buy Now</button>:
+              <button className='buyNow'>Delete</button>}
             </div>
-        </div>
-        <div className='planItem'>
+          </div>
+        ))}
+      </div>
+      <div className='planlist2'>
+        {plans.slice(3).map((plan, index) => (
+          <div className='planItem' key={index}>
             <div className='planPic'>
-            <img src={plan2} alt='plan1' />
+              <img src={plan.image} alt={plan.name} />
             </div>
             <div className='planText'>
-                <h2>Yoga For Beginners</h2>
-                <p>₹499</p>
-                <p>05:00 pm - 06:00 pm</p>
-                <button className='viewDetails'>View Details</button>
-                <button className='buyNow'>Buy Now</button>
+              <h2>{plan.name}</h2>
+              <p>₹{plan.price}</p>
+              <p>{plan.time}</p>
+              {(!isAdmin)?<button className='viewDetails'>View Details</button>:<button className='viewDetails'>Edit</button>}
+              {(!isAdmin)?<button className='buyNow' onClick={() => handlePurchase(plan)}>Buy Now</button>:
+              <button className='buyNow'>Delete</button>}
             </div>
-        </div>
-        <div className='planItem'>
-            <div className='planPic'>
-            <img src={plan3} alt='plan1' />
-            </div>
-            <div className='planText'>
-                <h2>Meditation Weekend</h2>
-                <p>₹799</p>
-                <p>05:30 am - 06:15 am</p>
-                <button className='viewDetails'>View Details</button>
-                <button className='buyNow'>Buy Now</button>
-            </div>
-        </div>
+          </div>
+        ))}
+      </div>
+      <Footer style={{ position: "absolute", top: "975px" }} />
     </div>
-    <div className='planlist2'>
-        <div className='planItem'>
-            <div className='planPic'>
-            <img src={plan4} alt='plan1' />
-            </div>
-            <div className='planText'>
-                <h2>Personalized Yoga Session</h2>
-                <p>₹9999</p>
-                <p>Flexible time</p>
-                <button className='viewDetails'>View Details</button>
-                <button className='buyNow'>Buy Now</button>
-            </div>
-        </div>
-        <div className='planItem'>
-            <div className='planPic'>
-            <img src={plan5} alt='plan1' />
-            </div>
-            <div className='planText'>
-                <h2>Fitness Yoga</h2>
-                <p>₹399</p>
-                <p>07:00 am - 08:00 am</p>
-                <button className='viewDetails'>View Details</button>
-                <button className='buyNow'>Buy Now</button>
-            </div>
-        </div>
-        <div className='planItem'>
-            <div className='planPic'>
-            <img src={plan6} alt='plan1' />
-            </div>
-            <div className='planText'>
-                <h2>Evening Yoga</h2>
-                <p>₹399</p>
-                <p>05:00 pm - 06:00 pm</p>
-                <button className='viewDetails'>View Details</button>
-                <button className='buyNow'>Buy Now</button>
-            </div>
-        </div>
-    </div>
-    <Footer style={{ position: "absolute", top: "975px" }} />
-</div>
-  )
-}
+  );
+};
 
-export default Plans
+export default Plans;

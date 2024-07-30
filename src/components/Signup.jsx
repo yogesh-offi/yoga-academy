@@ -79,10 +79,10 @@ const Signup = () => {
             else
             {
                 postData(username,email,password,userRole);
-                LogIn(data[uindex]);
+                // LogIn(data[uindex]);
                 toast.success("Signup successful");
                 setTimeout(() =>{
-                    navigate('/home')
+                    navigate('/login')
                 },2000)
                 return;
             }

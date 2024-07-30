@@ -51,21 +51,26 @@ const AdminUsers = () => {
                     <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Joined Course</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                {Array.isArray(users) && users.map(user => (
-                    <tr key={user.id}>
-                        <td>{user.id}</td>
-                        <td>{user.uname}</td>
-                        <td>{user.email}</td>
-                        <td>
-                            <button onClick={() => handleEdit(user)}>Edit</button>
-                            <button onClick={() => handleDelete(user.id)}>Delete</button>
-                        </td>
-                    </tr>
-                ))}
+            {Array.isArray(users) && users.map(user => (
+                <tr key={user.id}>
+                    <td>{user.id}</td>
+                    <td>{user.uname}</td>
+                    <td>{user.email}</td>
+                    {Array.isArray(user.Plans) && user.Plans.map(plan => (
+                        <td key={plan.id}>{plan.name}</td>
+                    ))}
+                    <td>
+                        <button onClick={() => handleEdit(user)}>Edit</button>
+                        <button onClick={() => handleDelete(user.id)}>Delete</button>
+                    </td>
+                </tr>
+            ))}
+
             </tbody>
         </table>
         {editUser && (

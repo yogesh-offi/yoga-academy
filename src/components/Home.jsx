@@ -3,13 +3,13 @@ import '../assets/css/Home.css';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { useNavigate } from 'react-router-dom'
-// import { Context } from './GlobeData';
+import { Context } from './GlobeData';
 import img4 from 'D:/AAD/app/src/assets/images/img4.jpg';
 import { useInView } from 'react-intersection-observer';
 
 const Home = () => {
 
-    // const {loggedIn} = useContext(Context);
+    const {loggedIn} = useContext(Context);
 
     const {ref,inview} = useInView({
         threshold: 1,
@@ -21,7 +21,7 @@ const Home = () => {
         naviagte('/plans');
     }
     const onhandleJoin = () => {
-        naviagte('/signup');
+        (loggedIn)?naviagte('/plans'):naviagte('/login');
     }
 
   return (
