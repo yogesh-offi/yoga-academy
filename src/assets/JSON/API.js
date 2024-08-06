@@ -95,7 +95,7 @@ export const getUserData = async (id) => {
 };
 
 export const setNewUserPassword = async (id, updatedUser) => {
-    await axios.put(`${API_URL}/updateuser/${id}`, updatedUser);
+    await axios.put(`${API_URL}/updateuserpass/${id}`, updatedUser);
 };
 
 export const updateUserPlans = async (id, updatedPlans) => {
