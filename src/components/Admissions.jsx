@@ -72,7 +72,7 @@ const Admissions = () => {
             if (userData) {
                 try {
                     const data = await getUserData(userData.id);
-                    setPurchasedPlans(data.Plans || []);
+                    setPurchasedPlans(data.plans || []);
                 } catch (error) {
                     console.error("Error fetching user data:", error);
                 }
@@ -87,9 +87,8 @@ const Admissions = () => {
             const updatedPlans = purchasedPlans.filter(plan => plan.name !== planName);
             await updateUserPlans(userData.id, updatedPlans);
             setPurchasedPlans(updatedPlans);
-
             // Update the userData in the context and local storage
-            const updatedUser = { ...userData, Plans: updatedPlans };
+            const updatedUser = { ...userData, plans: updatedPlans };
             LogIn(updatedUser);
 
             alert(`You have successfully canceled the ${planName} plan!`);

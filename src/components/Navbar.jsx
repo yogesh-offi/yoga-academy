@@ -24,7 +24,7 @@ const Navbar = () => {
         <h2>Yoga Academy</h2>
         <button onClick={()=>{navigate('/home')}}>Home</button>
         <button onClick={()=>{navigate('/plans')}}>plans</button>
-        {(isAdmin)?<button onClick={()=>{navigate('/courses')}}>Institutions</button>:''}
+        {(isAdmin)?<button onClick={()=>{navigate('/institutions')}}>Institutions</button>:''}
         {(loggedIn && !isAdmin)?<button onClick={()=>{navigate('/admissions')}}>Admission</button>:''}
         {(loggedIn && isAdmin)?<button onClick={()=>{navigate('/adminusers')}}>Users</button>:''}
         <button onClick={()=>{navigate('/about')}}>About</button>
@@ -33,7 +33,7 @@ const Navbar = () => {
                 <div className="dropdown">
                     <button className="dropbtn">User Options</button>
                     <div className="dropdown-content">
-                        <button onClick={handleProfile}>Profile</button>
+                        {(isAdmin)?<button onClick={handleProfile}>Admin Profile</button>:<button onClick={handleProfile}>User Profile</button>}
                         <button onClick={handleLogout}>Logout</button>
                     </div>
                 </div>

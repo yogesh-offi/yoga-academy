@@ -6,7 +6,7 @@
       "email": "yogesh@",
       "password": "yogesh",
       "Role": "Admin",
-      "Plans": []
+      "plans": []
     },
     {
       "id": "2",
@@ -14,7 +14,7 @@
       "email": "Vishwa@gmail.com",
       "password": "12345",
       "Role": "User",
-      "Plans": [
+      "plans": [
         {}
       ]
     },
@@ -22,9 +22,16 @@
       "id": "3",
       "uname": "sivakumar",
       "email": "siva@gmail.com",
-      "password": "siva12345",
+      "password": "siva",
       "Role": "User",
-      "Plans": [
+      "plans": [
+        {
+          "id": 2,
+          "name": "Yoga For Beginners",
+          "price": 499,
+          "time": "05:00 pm - 06:00 pm",
+          "image": "/static/media/plan2.b8f261323d9106a5276d.webp"
+        },
         {
           "id": 1,
           "name": "Quick Bite Yoga",
@@ -40,7 +47,7 @@
       "email": "yogesh@",
       "password": "123456",
       "Role": "User",
-      "Plans": [
+      "plans": [
         {}
       ]
     },
@@ -50,7 +57,7 @@
       "email": "sunil@gmail.com",
       "password": "sunil12345",
       "Role": "User",
-      "Plans": [
+      "plans": [
         {}
       ]
     },
@@ -60,7 +67,7 @@
       "email": "surya@gmail.com",
       "password": "surya@12345",
       "Role": "User",
-      "Plans": [
+      "plans": [
         {}
       ]
     }

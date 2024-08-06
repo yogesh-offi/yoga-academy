@@ -9,6 +9,7 @@ import ContactUs from "./components/ContactUs.jsx";
 import AdminUsers from "./components/AdminUsers.jsx";
 import Admissions from "./components/Admissions.jsx";
 import Profile from "./components/Profile.jsx";
+import Institutions from "./components/Institutions.jsx";
 function App() {
   return (
     <div className="App">
@@ -23,6 +24,7 @@ function App() {
         <Route path="/adminusers" element={<AdminUsers />}></Route>
         <Route path="/admissions" element={<Admissions />}></Route>
         <Route path="/profile" element={<Profile />} />
+        <Route path="/institutions" element={<Institutions />} />
       </Routes>
     </div>
   );
